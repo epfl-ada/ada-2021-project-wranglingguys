@@ -3,10 +3,10 @@ from gensim.parsing import *
 import numpy as np
 
 
-def get_word2vec_model(pretrained_model_name):
+def get_word2vec_model(pretrained_model_name='word2vec-google-news-300'):
     """
     Get a trained Word2Vec model.
-    :param pretrained_model_name: string containing the name of the pre trained model. Please, consult this website https://github.com/RaRe-Technologies/gensim-data#models to check the names of the pre trained models.
+    :param pretrained_model_name: string containing the name of the pre trained model. Please, consult this website https://github.com/RaRe-Technologies/gensim-data#models to check the names of the pre trained models. Default is google news dataset pre-trained model.
     :return: gensim word2vec model.
     """
     model = api.load(pretrained_model_name)
