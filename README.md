@@ -4,7 +4,10 @@
 
 
 ## Abstract
-
+Last year the Bitcoin course seemed to be highly influenced by Elon Musk. Can this pattern be transferred to other areas?
+The main goal of this project is to examine if there is an effect of celebrities' statements on the stock market. When this hypothesis can be proved these follow-on questions will be answered. First the quantity of the impact will be analysed and if it can be seen as a general statement or only for specific cases. Moreover, an attempt is made to map the influence on various industrial sectors and the time it takes for the effect to be reversed.
+For answering these questions NLP, Sentiment analysis and LSTM are used. The methods are applied on the Quotebank dataset, also Twitter and Stock data are taken into account. 
+If there is a connection this can be very useful for financial analysis.
 
 ## Research questions 
 1. Do celebrities have an impact on the stock market and, if so, how big is it?
