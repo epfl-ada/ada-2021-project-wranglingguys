@@ -28,22 +28,28 @@ def get_word2vec_model(pretrained_model_name='word2vec-google-news-300'):
     :param pretrained_model_name: string containing the name of the pre trained model. Please, consult this website https://github.com/RaRe-Technologies/gensim-data#models to check the names of the pre trained models. Default is google news dataset pre-trained model.
     :return: gensim word2vec model.
     """
+    print("### Loading Word2Vec %s pre trained model ###" % pretrained_model_name)
     model = api.load(pretrained_model_name)
-
+    print("### Successfully loaded Word2Vec %s pre trained model ###" % pretrained_model_name)
     return model
 
 
 def get_sentence_vector(sentence, model):
     """
     Get the vector representation of a sentence.
+    If a word is not present in the vocabulary, it will be removed from the sentence.
     :param sentence: string containing a sentence.
     :param model: Word2Vec trained model to query.
     :return: vector representing the whole sentence.
     """
     preprocessed_words_strings = preprocess_string(sentence, filters=[strip_punctuation, strip_multiple_whitespaces,
                                                                       remove_stopwords, strip_short])
-    preprocessed_words_vectors = [model.get_vector(string) for string in preprocessed_words_strings]
+    preprocessed_words_vectors = [model.get_vector(string) for string in preprocessed_words_strings if string in model.vocab]
     average = np.mean(preprocessed_words_vectors, axis=0)
     average = average / np.std(average)
+
+    for string in preprocessed_words_strings:
+        if string not in model.vocab:
+            print("Word ", string, " not found!")
 
     return average
