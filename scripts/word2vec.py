@@ -10,7 +10,6 @@ def extend_dataframe(original_dataframe, quotes_feature_name, new_feature_name, 
     :param quotes_feature_name: name of the feature containing the quotes.
     :param new_feature_name: name of the new feature to be added.
     :param word2vec_model: optionally, the word2vec model to use to form the vectors.
-    By default, it will use the pre-trained word2vec-google-news-300 model in gensim
     """
     quotes_series = original_dataframe[quotes_feature_name]
 
@@ -22,10 +21,10 @@ def extend_dataframe(original_dataframe, quotes_feature_name, new_feature_name, 
     original_dataframe[new_feature_name] = quotes_vectors_series
 
 
-def get_word2vec_model(pretrained_model_name='word2vec-google-news-300'):
+def get_word2vec_model(pretrained_model_name='glove-wiki-gigaword-50'):
     """
     Get a trained Word2Vec model.
-    :param pretrained_model_name: string containing the name of the pre trained model. Please, consult this website https://github.com/RaRe-Technologies/gensim-data#models to check the names of the pre trained models. Default is google news dataset pre-trained model.
+    :param pretrained_model_name: string containing the name of the pre trained model. Please, consult this website https://github.com/RaRe-Technologies/gensim-data#models to check the names of the pre trained models.
     :return: gensim word2vec model.
     """
     print("### Loading Word2Vec %s pre trained model ###" % pretrained_model_name)
@@ -43,13 +42,14 @@ def get_sentence_vector(sentence, model):
     :return: vector representing the whole sentence.
     """
     preprocessed_words_strings = preprocess_string(sentence, filters=[strip_punctuation, strip_multiple_whitespaces,
-                                                                      remove_stopwords, strip_short])
-    preprocessed_words_vectors = [model.get_vector(string) for string in preprocessed_words_strings if string in model.vocab]
+                                                                      remove_stopwords, strip_short, strip_numeric])
+    preprocessed_words_vectors = [model.get_vector(string.lower()) for string in preprocessed_words_strings if string in model.key_to_index]
+    
     average = np.mean(preprocessed_words_vectors, axis=0)
     average = average / np.std(average)
 
-    for string in preprocessed_words_strings:
-        if string not in model.vocab:
-            print("Word ", string, " not found!")
+    #for string in preprocessed_words_strings:
+        #if string.lower() not in model.key_to_index:
+            #print("Word ", string.lower(), " not found!")
 
     return average
