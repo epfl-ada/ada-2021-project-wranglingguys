@@ -3,6 +3,25 @@ from gensim.parsing import *
 import numpy as np
 
 
+def extend_dataframe(original_dataframe, quotes_feature_name, new_feature_name, word2vec_model=None):
+    """
+    Extend the dataframe adding a new feature with vector representations of quotes.
+    :param original_dataframe: dataframe where to add the new feature and containing the quotes.
+    :param quotes_feature_name: name of the feature containing the quotes.
+    :param new_feature_name: name of the new feature to be added.
+    :param word2vec_model: optionally, the word2vec model to use to form the vectors.
+    By default, it will use the pre-trained word2vec-google-news-300 model in gensim
+    """
+    quotes_series = original_dataframe[quotes_feature_name]
+
+    if word2vec_model is None:
+        word2vec_model = get_word2vec_model()
+
+    quotes_vectors_series = quotes_series.map(lambda sentence: get_sentence_vector(sentence, word2vec_model))
+
+    original_dataframe[new_feature_name] = quotes_vectors_series
+
+
 def get_word2vec_model(pretrained_model_name='word2vec-google-news-300'):
     """
     Get a trained Word2Vec model.
