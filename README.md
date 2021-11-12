@@ -52,6 +52,11 @@ The aim of this week is to finalize all the working tools so that we can focus o
 
 ### Second week: work on the research questions
 During the second week, we will use the finalized working tools to answer our research questions.
+We will split up the research questions like this:
+- Question 1: Giovanni
+- Question 2: Alexis
+- Question 3: Simon
+- Question 4: Andreas
 
 ### Third week: finalize the results and prepare the presentation
 During this week, we will put it all together and prepare the final presentation.
