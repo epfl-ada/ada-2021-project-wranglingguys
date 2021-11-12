@@ -27,30 +27,39 @@ Besides, we will investigate how politicians from different countries position t
 
 ## Methods 
 1. NLP
-2. Word2Vec
+2. Word2Vec: we 
 3. Clustering
 4. Sentiment analysis: We used *TextBlob* to extract the polarity of quotes. It is a library for Natural Language Processing (NLP) and can be used for complex analysis on textual data.
 
 
-## Proposed timeline
-1. Filtering the data for political quotes
-2. Merging Wikidata with Quotebank
-3. Maybe doing a more in depth analysis of the quotes w.r.t. to different countries (length of quotes(number of words in quotes), distribution of number of quotes per day) ??
-Also cleaning the data (e.g. Removing duplicates)
-4. Vectorization of data (Word2Vec)
-5. Answering the research questions in the order above by using the gained data of previous steps
+## Proposed timeline and organization within the team
 
-## Organization within the team
-1. Look for the most political citations in one country, take the country with the most ones. -Alexis
-1. Filter the citations out.
-2. Prepare data for NLP (remove stop words) - use word2vec with library or textblock gensim for topics -Giovanni
-3. When we have the vectors of the words, do the clustering (into topics)   - Andi
-4. Select a topic. Do sentiment analysis on some quotes in this topic	-Simon
-5. Visualize the results
+### First week: finalize the working tools
+During this week, we will improve and finalize our working tools.
+During the Milestone 2, we tried to map the quotes in a Word2Vec representation by just averaging the words. 
+We realized this did not work well with 
+
+### Second week: work on the research questions
+During the second week, we will use the finalized working tools to answer our research questions.
+
+### Third week: finalize the results and prepare the presentation
+During this week, we will put it all together and prepare the final presentation.
 
 ## Questions for TAs
 
 ## Code organization ?? 
 Files:
 * notebook.ipynb: notebook with in depth analysis of the data that we need
-* 
+
+```markdown
+├── README.md: this file.
+├── milestone2.ipynb: prototype of our project, with the preparation of the politicians dataset, the clustering and the sentiment analysis.
+└── src
+   ├── sentiment_analysis.py: helpers functions used to carry out sentiment anaylsis.
+   ├── word2vec.py: helpers functions necessary to map the quotes in vector representation.
+   └── data_wrangling
+      ├── filter_politicians_quotes.py: 
+      ├── generate_political_party_dataset.ipynb
+      ├── load_data.py:
+      └── wikidata_fetch.py:
+```
