@@ -1,9 +1,18 @@
-#!/usr/bin/python3
-
 import pandas as pd
 import ast
 import numpy as np
+
 def load_political_quotes(country=None, political_alignment=None, year=None, chunksize=1000):
+    """
+    Loads politician quotes matching the given filters.
+    :param country: list of strings with countries used to filter where the
+                    political parties of the politicians are from.
+    :param political_alignment: list of strings with political alignments used
+                                to filter the political parties of the politicians.
+    :param year: years when the articles with the quotes were published.
+    :param chunksize: defines the number of lines to read at a time from the quotebank datasets.
+    :return: a generator with quotes matching the filters.
+    """
     # TODO: Handle parties with more than one country and more than one
     # political alignment
     data_dir = '../../data/'
