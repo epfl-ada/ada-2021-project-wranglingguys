@@ -1,6 +1,9 @@
 import pandas as pd
 import ast
 import numpy as np
+from pathlib import Path
+import os
+
 
 def load_political_quotes(country=None, political_alignment=None, year=None, chunksize=1000):
     """
@@ -15,9 +18,11 @@ def load_political_quotes(country=None, political_alignment=None, year=None, chu
     """
     # TODO: Handle parties with more than one country and more than one
     # political alignment
-    data_dir = '../../data/'
-    politician_quotes_dir = data_dir + 'politician_quotes_dataset/'
-    parties_file_path = politician_quotes_dir + 'parties.csv.gz'
+
+    data_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'data')
+    politician_quotes_dir = os.path.join(data_dir, 'politician_quotes_dataset')
+    parties_file_path = os.path.join(politician_quotes_dir, 'parties.csv.gz')
+
     parties = pd.read_csv(parties_file_path, compression='gzip', index_col=0)
 
     # Remove wrong political party ids
@@ -46,10 +51,12 @@ def load_political_quotes(country=None, political_alignment=None, year=None, chu
     politicians = politicians[~politicians.index.duplicated(keep='first')]
 
     for year in quote_years:
-        quotes_path = politician_quotes_dir + 'quotes-' + str(year) + '-politicians.csv.gz'
+        quotes_path = os.path.join(politician_quotes_dir, 'quotes-' + str(year) + '-politicians.csv.gz')
         with pd.read_csv(quotes_path, compression='gzip', chunksize=chunksize) as df_reader:
             for chunk in df_reader:
                 chunk = chunk[chunk.qid.isin(politicians.index)] # Get politicians with those parties
+                if chunk.empty:
+                    continue
                 # Make index match to copy column values
                 chunk.set_index('qid', inplace=True)
                 # Append country and political alignment information
