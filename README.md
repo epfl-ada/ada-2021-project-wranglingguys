@@ -61,8 +61,6 @@ We will split up the research questions like this:
 ### Third week: finalize the results and prepare the presentation
 During this week, we will put it all together and prepare the final presentation.
 
-## Questions for TAs
-
 ## Code organization 
 Files:
 ```markdown
