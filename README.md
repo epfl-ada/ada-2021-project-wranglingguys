@@ -43,9 +43,11 @@ Sentiment Analysis: we use TextBlob to extract the polarity and subjectivity of 
 
 ### First week: finalize the working tools
 During this week, we will improve and finalize our working tools.
-In particular, we will improve the clustering results and the vector representation of quotes (Andreas and Giovanni).
-Also, we will improve the results of sentiment analysis (Simon).
+
+In particular, we will improve the clustering results and the vector representation of quotes (Andreas and Giovanni).<br>
+Also, we will improve the results of sentiment analysis (Simon).<br>
 In addition, we will address some problems in the wikidata dataset, such as politicians with more associated parties (Alexis).
+
 The aim of this week is to finalize all the working tools so that we can focus on the actual research questions during the second one.
 
 ### Second week: work on the research questions
