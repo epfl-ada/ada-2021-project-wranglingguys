@@ -47,10 +47,8 @@ During this week, we will put it all together and prepare the final presentation
 
 ## Questions for TAs
 
-## Code organization ?? 
+## Code organization 
 Files:
-* notebook.ipynb: notebook with in depth analysis of the data that we need
-
 ```markdown
 ├── README.md: this file.
 ├── milestone2.ipynb: prototype of our project, with the preparation of the politicians dataset, the clustering and the sentiment analysis.
