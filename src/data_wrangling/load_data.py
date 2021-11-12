@@ -40,14 +40,21 @@ def load_political_quotes(country=None, political_alignment=None, year=None, chu
     if year:
         quote_years = year
 
-    valid_politicians = parties['politicians'].explode().unique()
+    politicians = parties.explode('politicians').set_index('politicians')
+    # Temprorarily, when there are politicians with more than a party
+    # keep first
+    politicians = politicians[~politicians.index.duplicated(keep='first')]
 
     for year in quote_years:
         quotes_path = politician_quotes_dir + 'quotes-' + str(year) + '-politicians.csv.gz'
-
         with pd.read_csv(quotes_path, compression='gzip', chunksize=chunksize) as df_reader:
             for chunk in df_reader:
-                # Get politicians with those parties
-                parties['politicians']
-                test = chunk[chunk.qid.isin(valid_politicians)]
-                yield test
+                chunk = chunk[chunk.qid.isin(politicians.index)] # Get politicians with those parties
+                # Make index match to copy column values
+                chunk.set_index('qid', inplace=True)
+                # Append country and political alignment information
+                chunk['country'] = politicians['country']
+                chunk['political_alignment'] = politicians['political_alignment']
+                # Reset index to quoteID
+                chunk = chunk.reset_index().set_index('quoteID')
+                yield  chunk
