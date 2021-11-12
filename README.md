@@ -1,58 +1,56 @@
 # Applied Data Analysis project - Milestone 2
 
 ## Title
-
+How much does the political scenario change from one country to another?
 
 ## Abstract
-Last year the Bitcoin course seemed to be highly influenced by Elon Musk. Can this pattern be transferred to other areas?
-The main goal of this project is to examine if there is an effect of celebrities' statements on the stock market. When this hypothesis can be proved these follow-on questions will be answered. First the quantity of the impact will be analysed and if it can be seen as a general statement or only for specific cases. Moreover, an attempt is made to map the influence on various industrial sectors and the time it takes for the effect to be reversed.
-For answering these questions NLP, Sentiment analysis and LSTM are used. The methods are applied on the Quotebank dataset, also Twitter and Stock data are taken into account. 
-If there is a connection this can be very useful for financial analysis.
+Who is the Italian Donald Trump? Is the Democratic Party similar to German CDU?
+
+It can be difficult, moving from one country to another, keeping track of the parties' issues. It would be a huge help if you have a comparison between politicians and parties with respect to different countries. 
+In this project we want to address these and other questions related to political topics. 
+
+The main goal is to examine how much the political scenario in one topic changes from one country to another. 
+Taking into account the quotes and the party of politicians, we will discover the hottest topics in each country and compare them to the ones of other countries.
+
+Besides, we will investigate how politicians from different countries position themselves over the same topics, especially if they come from the same political background (i.e. right parties, left parties), by analyzing the similarities and the differences.
 
 ## Research questions 
-1. Do celebrities have an impact on the stock market and, if so, how big is it?
-2. If we can find an effect, does it work for the general case or only for some people?
-3. Also, what kind of industry does it affect? Can we find substantial differences comparing, for example, between cryptocurrencies and insurance companies?
-4. If there is an effect, will the company recover? If it does, how long does it take for the company to recover?
-5. Can we predict if a quote will have an effect on the stock market?
+1. How much does the politics scenario in one topic change from one country to another?
+2. Considering a party, how much do their opinions differ compared to a party with similar political 
+   orientation from another country?
+3. Who is the most similar politician taken from one country compared to another country?
+4. Are the hottest topics of debate the same over different countries? If not, why is that?
 
 ## Proposed additional datasets
-1. Twitter data
-2. Stock data
+1. Wikidata: Extract political party related to the speakers, extract political orientation of parties.
+
 
 ## Methods 
 1. NLP
-2. Sentiment analysis 
-3. LSTM
+2. Word2Vec
+3. Clustering
+4. Sentiment analysis: We used *TextBlob* to extract the polarity of quotes. It is a library for Natural Language Processing (NLP) and can be used for complex analysis on textual data.
 
 
 ## Proposed timeline
-Until 4th of November: 
-1. preliminary exploration of Quotebank + write down a draft of the abstract
-2. evaluate which stock data source to use
-3. look for APIs to recover twitter data
-4. decide NLP technique to use
-
-Until 10th of November:
-1. produce some statistics and plots
-2. point out how to use the additional twitter / stock data
-3. prepare data for different libraries / techniques
-
-Until 12th of November:
-1. Complete the assignment
-
-
-## Meetings
-1. 2/11/21 from 10a.m.
-2. 4/11/21 from 10a.m. to 11a.m.
+1. Filtering the data for political quotes
+2. Merging Wikidata with Quotebank
+3. Maybe doing a more in depth analysis of the quotes w.r.t. to different countries (length of quotes(number of words in quotes), distribution of number of quotes per day) ??
+Also cleaning the data (e.g. Removing duplicates)
+4. Vectorization of data (Word2Vec)
+5. Answering the research questions in the order above by using the gained data of previous steps
 
 ## Organization within the team
-
+1. Look for the most political citations in one country, take the country with the most ones. -Alexis
+1. Filter the citations out.
+2. Prepare data for NLP (remove stop words) - use word2vec with library or textblock gensim for topics -Giovanni
+3. When we have the vectors of the words, do the clustering (into topics)   - Andi
+4. Select a topic. Do sentiment analysis on some quotes in this topic	-Simon
+5. Visualize the results
 
 ## Questions for TAs
-- Should we restrict to a few brands / celebrities? If so, how?
 
-## General ideas
-1. Elon Musk quotes
-2. Signal vs Signal Advance (Elon Musk)
-3. Are articles biased towards cases where celebrities' quotes do have an impact?
+## Code organization ?? 
+Files:
+* notebook.ipynb: notebook with in depth analysis of the data that we need
+* 
