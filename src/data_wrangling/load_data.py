@@ -62,6 +62,7 @@ def load_political_quotes(country=None, political_alignment=None, year=None, chu
                 # Append country and political alignment information
                 chunk['country'] = politicians['country']
                 chunk['political_alignment'] = politicians['political_alignment']
+                chunk['political_party'] = politicians['label']
                 # Reset index to quoteID
                 chunk = chunk.reset_index().set_index('quoteID')
                 yield  chunk
