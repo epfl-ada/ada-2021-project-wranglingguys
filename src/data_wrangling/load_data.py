@@ -51,7 +51,7 @@ def load_political_quotes(country=None, political_alignment=None, year=None, chu
     politicians = politicians[~politicians.index.duplicated(keep='first')]
 
     for year in quote_years:
-        quotes_path = os.path.join(politician_quotes_dir, 'quotes-' + str(year) + '-politicians.csv.gz')
+        quotes_path = os.path.join(politician_quotes_dir, 'temp_quotes-' + str(year) + '-politicians.csv.gz')
         with pd.read_csv(quotes_path, compression='gzip', chunksize=chunksize) as df_reader:
             for chunk in df_reader:
                 chunk = chunk[chunk.qid.isin(politicians.index)] # Get politicians with those parties
