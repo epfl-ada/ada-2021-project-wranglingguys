@@ -17,14 +17,14 @@ Therefore, we will take a short journey through the different political topics. 
 
 Taking into account the quotes and the party of politicians, we will examine and compare the hottest topics in each country.
 
-Besides, we will investigate how politicians from different countries position themselves over the same topics, especially if they come from the same political background (i.e. right parties, left parties).
+Besides, we will investigate how politicians from different countries position themselves over the same topics, especially if they come from the same political background (i.e. right parties).
 
 
 
 ## Research questions 
 1. How much does the political scenario in some hot topics (for example immigration, climate change, EU, gender discrimination, Israeli-Palestinian conflict, Russia, terrorism and Covid-19) change from one country to another? Why is that?
 2. Considering the most important parties of these countries, how much do their opinions and interest differ over these topics?
-3. How do the important politicians of these parties position themselves over the same topics? What can we observe if we compare them with the leaders of the far-right parties in the same countries?
+3. How do the important politicians of the right-wing parties position themselves over the same topics? What can we observe if we compare them with the heads of government in the same countries?
 
 ## Proposed additional datasets
 Wikidata: we use wikidata to extract political party related to the speakers and political orientation of parties. This data is necessary as we need to filter politicians, to associate politicians with parties and parties with political orientations. 
