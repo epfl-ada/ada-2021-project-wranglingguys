@@ -1,7 +1,9 @@
-# Applied Data Analysis project - Milestone 2
+# Applied Data Analysis project - Milestone 3
 
 ## Title
 How much does the political scenario change from one country to another?
+
+
 
 ## Abstract
 Europe, 2019.
@@ -11,6 +13,8 @@ The main goal is to examine how much the political scenario in one topic changes
 
 Besides, we will investigate how politicians from different countries position themselves over the same topics, especially if they come from the same political background (i.e. right parties, left parties), by analyzing the similarities and the differences.
 
+
+
 ## Research questions 
 1. How much does the political scenario in some hot topics (for example immigration, climate change, EU, gender discrimination, Israeli-Palestinian conflict, Russia, terrorism and Covid-19) change from one country to another? Why is that?
 2. Considering the most important parties of these countries, how much do their opinions and interest differ over these topics?
@@ -18,6 +22,7 @@ Besides, we will investigate how politicians from different countries position t
 
 ## Proposed additional datasets
 Wikidata: we use wikidata to extract political party related to the speakers and political orientation of parties. This data is necessary as we need to filter politicians, to associate politicians with parties and parties with political orientations. 
+
 
 
 ## Methods 
@@ -40,14 +45,14 @@ Quotes embedding: we currently use <a href=''>Top2Vec</a>, which learns a joint 
 
 Topic Extraction: we follow the approach of Top2Vec. So we use UMAP for dimensionality reduction of the embedding vectors and HDBSCAN for the final clustering.
 
-Sentiment Analysis: we use TextBlob to extract the polarity and subjectivity of quotes.
+Sentiment Analysis: we use <a href='https://github.com/cjhutto/vaderSentiment'>VADER</a> to extract the polarity of quotes.
 
 
 
 ## Proposed timeline
 
 ### First week: finalize the working tools
-During this week, we will improve and finalize our working tools.
+During this week, we improve the project datails with the feedback from milestone 2 and finalize our working tools.
 
 In particular, we will improve the clustering results and the vector representation of quotes (Andreas and Giovanni).<br>
 Also, we will improve the results of sentiment analysis (Simon).<br>
@@ -57,11 +62,11 @@ The aim of this week is to finalize all the working tools so that we can focus o
 
 ### Second week: work on the research questions
 During the second week, we will use the finalized working tools to answer our research questions.
-We will work together on all the questions 
-
+In particular, the first research question (Giovanni) has to be done first for the others to be started, as we need the topics datasets.
+Then, the second research question (Alexis) and the third one (Andreas) will be answered in parallel.
 
 ### Third week: finalize the results and prepare the presentation
-During this week, we will put it all together and prepare the final presentation.
+During this week, we will put it all together and prepare the data story and the final presentation (Simon).
 
 ## Organization within the team
 
