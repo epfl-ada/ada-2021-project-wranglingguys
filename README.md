@@ -5,6 +5,11 @@ How much does the political scenario change from one country to another?
 
 
 
+## Data story
+To read our data story, click <a href='https://simon01239.github.io/ada/'>here</a>.
+
+
+
 ## Abstract
 Europe, 2019.
 It appears that right-wing populists are on the rise in many countries. But can you really compare these parties between countries? What do they have in common? How do they differ? What is the general political orientation on controversial themes in different countries and what is the position of the leading politicians on these themes? Is the ‘Alternative for Germany’ similar to ‘Lega Nord’? in this project we will take a short journey through the different political topics. For this purpose, we will focus on some of the larger EU member states: France, Germany, Italy, Spain and Poland.
