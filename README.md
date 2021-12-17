@@ -85,13 +85,15 @@ During this week, we will put it all together and prepare the data story and the
 Files:
 ```markdown
 ├── README.md: this file.
-├── milestone2.ipynb: prototype of our project, with the preparation of the politicians dataset, the clustering and the sentiment analysis.
+├── milestone3.ipynb: notebook with the third milestone of the project.
 └── src
    ├── sentiment_analysis.py: helpers functions used to carry out sentiment anaylsis.
-   ├── word2vec.py: helpers functions necessary to map the quotes in vector representation.
    └── data_wrangling
       ├── filter_politicians_quotes.py: script to filter only the quotes from the politicians.
       ├── generate_political_party_dataset.ipynb: notebook with the steps to generate the political party dataset.
       ├── load_data.py: helper functions that load the politician dataset given some filters.
-      └── wikidata_fetch.py: functions to enrich the current dataset by pullin extra information about the speakers from the wikidata.
+      └── wikidata_fetch.py: functions to enrich the current dataset by pulling extra information about the speakers from the wikidata.
+└── scripts
+   ├── research_question_1.py: helper functions used for the first research question
+   └── research_question_3.py: helper functions used for the third research question
 ```
