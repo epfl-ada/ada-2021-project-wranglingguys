@@ -70,9 +70,9 @@ During this week, we will put it all together and prepare the data story and the
 
 ## Organization within the team
 
-- Alexis: data preprocessing and third research question.
-- Andreas: second research question.
-- Giovanni: first research question.
+- Alexis: data preprocessing, third research question.
+- Andreas: finding a way to represent politicians by their sentiments over the topics, second research question.
+- Giovanni: finding a way to distinguish the topics, first research question.
 - Simon: writing up the data story, preparing the final presentation.
 
 ## Code organization 
