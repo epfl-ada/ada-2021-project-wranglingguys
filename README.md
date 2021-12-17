@@ -4,53 +4,47 @@
 How much does the political scenario change from one country to another?
 
 ## Abstract
-Who is the Italian Donald Trump? Is the Democratic Party similar to German CDU?
+Europe, 2019.
+It appears that right-wing populists are on the rise in many countries. But can you really compare these parties between countries? What do they have in common? How do they differ? What is the general political orientation on controversial themes in different countries and what is the position of the leading politicians on these themes? Is the ‘Alternative for Germany’ similar to ‘Lega Nord’? in this project we will take a short journey through the different political topics. For this purpose, we will focus on some of the larger EU member states: France, Germany, Italy, Spain and Poland.
 
-It can be difficult, moving from one country to another, keeping track of the parties' issues. It would be a huge help if you have a comparison between politicians and parties with respect to different countries. 
-In this project we want to address these and other questions related to political topics. 
-
-The main goal is to examine how much the political scenario in one topic changes from one country to another. 
-Taking into account the quotes and the party of politicians, we will discover the hottest topics in each country and compare them to the ones of other countries.
+The main goal is to examine how much the political scenario in one topic changes from one of these countries to another. Taking into account the quotes and the party of politicians, we will discover the hottest topics in each country and compare them to the ones of other countries.
 
 Besides, we will investigate how politicians from different countries position themselves over the same topics, especially if they come from the same political background (i.e. right parties, left parties), by analyzing the similarities and the differences.
 
 ## Research questions 
-1. How much does the political scenario in some hot topics (migration, climate change, EU, gender discrimination, drug legalization, russian politician) change from one country to another? Why is that?
-2. Considering rigth-hand parties (AfD(Germany), Lega Nord(Italy), Front National(France), PiS(Poland), UKIP(UK)), how much do their opinions differ compared to a party with similar political orientation from another country?
-3. How do the important politicans of these parties positioning themselves over topics (migration, climate change, EU, gender discrimination, drug legalization, russian politician)? 
+1. How much does the political scenario in some hot topics (for example immigration, climate change, EU, gender discrimination, Israeli-Palestinian conflict, Russia, terrorism and Covid-19) change from one country to another? Why is that?
+2. Considering the most important parties of these countries, how much do their opinions and interest differ over these topics?
+3. How do the important politicans of these parties position themselves over the same topics? What can we observe if we compare them with the leaders of the far right parties in the same countries?
 
 ## Proposed additional datasets
 Wikidata: we use wikidata to extract political party related to the speakers and political orientation of parties. This data is necessary as we need to filter politicians, to associate politicians with parties and parties with political orientations. 
 
 
 ## Methods 
-For research question 1:
-Find a way to get the quotes of migration, climate change, EU, gender discrimination, drug legalization, russian politician of Germany, Italy, France, Poland and UK. 
-Examine the distribution of these topics in the countries and over time.
 
-For research question 2:
-For each topic we do the plots of the sentiment analysis and highlight quotes from different parties with different colours. 
-Then for each topic we can create a boxplot showing the sentiment analysis distribution per country.
+### General explanation
 
-For research question 3:
-Compute for each politican and for each topic the average sentiment and compare them. Find the politicans who are more similar. 
+In order to answer the research questions we implemented the pipeline as follows:
 
-
-In order to answer the research questions we plan to implement pipeline as follows:
-
-1. Extract suitable subsets from the quote dataset
-2. Embed the quotes as vectors
-3. Extract the topics covered by the quotes
+1. Filter the quotes by politicians from the original Quotebank dataset, by making use of Wikidata references.
+2. Train a Top2Vec model based on the subset of quotes we use.
+3. Create a new dataset of quotes per topic. 
 4. Use sentiment analysis on the quotes to get the „opinion direction“ expressed about the topic.
 
-Embedding: we currently use Doc2Vec, which learns a joint embedding encoding both the semantic of the words as well as their order in the document. Although we might switch to another pretrained embedding model, like Word2Vec, that we already implemented. In particular, for Word2Vec, with *gensim* we load a pre-trained Word2Vec model. Then, we pre-process each quote and we average all the words with their TF-IDF score.
+The steps from 1. to 3. are performed in the preliminary data analysis and in the first research question part.
+The fourth is performed for the other research questions, at the party-level and at the politician-level respectively.
 
-Topic Extraction: We follow the approach of Top2Vec. So we use UMAP for dimensionality reduction of the embedding vectors and HDBSCAN for the final clustering.
+### Techniques and libraries
+
+Quotes embedding: we currently use <a href=''>Top2Vec</a>, which learns a joint embedding encoding both the semantic of the words as well as their order in the document. 
+
+Topic Extraction: we follow the approach of Top2Vec. So we use UMAP for dimensionality reduction of the embedding vectors and HDBSCAN for the final clustering.
 
 Sentiment Analysis: we use TextBlob to extract the polarity and subjectivity of quotes.
 
 
-## Proposed timeline and organization within the team
+
+## Proposed timeline
 
 ### First week: finalize the working tools
 During this week, we will improve and finalize our working tools.
@@ -68,6 +62,13 @@ We will work together on all the questions
 
 ### Third week: finalize the results and prepare the presentation
 During this week, we will put it all together and prepare the final presentation.
+
+## Organization within the team
+
+- Alexis: data preprocessing and third research question.
+- Andreas: second research question.
+- Giovanni: first research question.
+- Simon: writing up the data story, preparing the final presentation.
 
 ## Code organization 
 Files:
